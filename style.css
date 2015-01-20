@@ -71,7 +71,7 @@ b.back {
   transform: translate3d(-400px, 0, 400px) rotateY(180deg); }
 
 b.right {
-  -webkit-transform: rotateY(-90deg);
+  -webkit-transform: translate3d(0, 0, 0) rotateY(-90deg);
   background: rgba(0, 255, 0, 0.5); }
 
 b.left {
