@@ -24,15 +24,16 @@
   to   { transform: rotateY(360deg); }
 }
 
-$size: 1400px;
+$size: 800px;
+$cube-size: 200px;
 
 /* scene wrapper */
 .wrapper {
   height: 300px;
   margin-top: 50px;
   position: relative;
-  perspective: 600;
-  perspective-origin: 50% 900px;
+  perspective: 400;
+  perspective-origin: 50% $size/2;
 }
 
 /* cube wrapper */
@@ -41,24 +42,25 @@ $size: 1400px;
   margin: 0 auto;
   width: 0px;
   -webkit-transform-style: preserve-3d;
-  -webkit-animation: spin 14s infinite linear;
+  // -webkit-animation: spin 14s infinite linear;
   transition: all 1s linear;
 }
 
 /* outer cube */
 b{
-  position:absolute;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
   width: $size;
   height: $size;
-  display:block;
-  background:rgba(255,255,0,0.1);
+  display: block;
+  background: rgba(255,255,0,0.1);
   // box-shadow:inset 0 0 222px rgba(0,0,0,0.9);
-  font-size:300px;
-  text-align:center;
-  line-height:$size/2;
-  color:rgba(0,0,0,0.5);
-  font-family:sans-serif;
-  text-transform:uppercase;
+  font-size: 150px;
+  text-align: center;
+  line-height: $size/2;
+  color: rgba(0,0,0,0.5);
+  font-family: sans-serif;
+  text-transform: uppercase;
   transition: all 1s linear;
 }
 b.back{
@@ -71,51 +73,55 @@ b.right{
 b.left{
   -webkit-transform: translateX(-$size) rotateY(90deg);
   background: rgba(255, 0, 0, 0.5);
-  /*transform:translateZ(-300px) rotateY(270deg) translateX(-600px);*/
-  /*transform-origin: center left;*/
 }
 b.top{
   -webkit-transform: translateX(-$size/2) translateY(-$size/2) rotateX(-90deg);
   background: rgba(255,255,0,0.5);
-  /*transform:translateZ(-300px) rotateX(-90deg) translateY(-600px);*/
-  /*transform-origin: top center;*/
 }
 b.bottom{
   -webkit-transform: translateX(-$size/2) translateY($size/2) rotateX(90deg);
   background: rgba(255,127,255,0.5);
-  /*transform:translateZ(-300px) rotateX(90deg) translateY(600px);*/
-  /*transform-origin: bottom center;*/
 }
 b.front{
   -webkit-transform: translateX(-$size/2) translateZ(-$size/2);
 }
 
 /* inner cube */
-i{
-  position:absolute;
-  top:50px;
-  left:50px;
-  width:100px;
-  height:100px;
-  display:block;
-  background:url(http://i45.tinypic.com/muxvt1.png);
+i {
+  position: absolute;
+  width: $cube-size;
+  height: $cube-size;
+  display: block;
+  background: rgba(127,127,127,0.1);
+
+  font-size: 30px;
+  text-align: center;
+  line-height: $cube-size/2;
+  color: rgba(0,0,0,0.5);
+  font-family: sans-serif;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+
   transition: all 1s linear;
 }
+
+$y-offset: $size/2 - $cube-size/2;
+
 i.front{
-  transform: translateX($size/2);
-}
-i.back{
-
-}
-i.bottom{
-
-}
-i.left{
-
+  transform: translateX(-$cube-size/2) translateY($y-offset) translateZ($cube-size/2);
 }
 i.right{
-
+  -webkit-transform: translateY($y-offset) rotateY(90deg);
+}
+i.left{
+  -webkit-transform: translateX(-$cube-size) translateY($y-offset) rotateY(-90deg);
 }
 i.top{
-
+  -webkit-transform: translateX(-$cube-size/2) translateY($y-offset - $cube-size/2) rotateX(-90deg);
+}
+i.bottom{
+  -webkit-transform: translateX(-$cube-size/2) translateY($y-offset + $cube-size/2) rotateX(90deg);
+}
+i.back{
+  -webkit-transform: translateX(-$cube-size/2) translateY($y-offset) translateZ(-$cube-size/2) rotateY(180deg);
 }
