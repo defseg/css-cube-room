@@ -42,7 +42,7 @@ $cube-size: 200px;
   margin: 0 auto;
   width: 0px;
   -webkit-transform-style: preserve-3d;
-  // -webkit-animation: spin 14s infinite linear;
+  -webkit-animation: spin 14s infinite linear;
   transition: all 1s linear;
 }
 
@@ -64,26 +64,26 @@ b{
   transition: all 1s linear;
 }
 b.back{
-  transform: translateX(-$size/2) translateZ($size/2) rotateY(180deg);
+  transform: translate3d(-$size/2, 0, $size/2) rotateY(180deg);
 }
 b.right{
   -webkit-transform: rotateY(-90deg);
   background: rgba(0,255,0,0.5);
 }
 b.left{
-  -webkit-transform: translateX(-$size) rotateY(90deg);
+  -webkit-transform: translate3d(-$size, 0, 0) rotateY(90deg);
   background: rgba(255, 0, 0, 0.5);
 }
 b.top{
-  -webkit-transform: translateX(-$size/2) translateY(-$size/2) rotateX(-90deg);
+  -webkit-transform: translate3d(-$size/2, -$size/2, 0) rotateX(-90deg);
   background: rgba(255,255,0,0.5);
 }
 b.bottom{
-  -webkit-transform: translateX(-$size/2) translateY($size/2) rotateX(90deg);
+  -webkit-transform: translate3d(-$size/2, $size/2, 0) rotateX(90deg);
   background: rgba(255,127,255,0.5);
 }
 b.front{
-  -webkit-transform: translateX(-$size/2) translateZ(-$size/2);
+  -webkit-transform: translate3d(-$size/2, 0, -$size/2);
 }
 
 /* inner cube */
@@ -108,20 +108,20 @@ i {
 $y-offset: $size/2 - $cube-size/2;
 
 i.front{
-  transform: translateX(-$cube-size/2) translateY($y-offset) translateZ($cube-size/2);
+  transform: translate3d(-$cube-size/2, $y-offset, $cube-size/2);
 }
 i.right{
-  -webkit-transform: translateY($y-offset) rotateY(90deg);
+  -webkit-transform: translate3d(0, $y-offset, 0) rotateY(90deg);
 }
 i.left{
-  -webkit-transform: translateX(-$cube-size) translateY($y-offset) rotateY(-90deg);
+  -webkit-transform: translate3d(-$cube-size, $y-offset, 0) rotateY(-90deg);
 }
 i.top{
-  -webkit-transform: translateX(-$cube-size/2) translateY($y-offset - $cube-size/2) rotateX(-90deg);
+  -webkit-transform: translate3d(-$cube-size/2, $y-offset - $cube-size/2, 0) rotateX(-90deg);
 }
 i.bottom{
-  -webkit-transform: translateX(-$cube-size/2) translateY($y-offset + $cube-size/2) rotateX(90deg);
+  -webkit-transform: translate3d(-$cube-size/2, $y-offset + $cube-size/2, 0) rotateX(90deg);
 }
 i.back{
-  -webkit-transform: translateX(-$cube-size/2) translateY($y-offset) translateZ(-$cube-size/2) rotateY(180deg);
+  -webkit-transform: translate3d(-$cube-size/2, $y-offset, -$cube-size/2) rotateY(180deg);
 }
