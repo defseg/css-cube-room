@@ -1,0 +1,121 @@
+/* keyframes for rotating animation */
+@-webkit-keyframes spin {
+  from { transform: rotateY(0); }
+  to   { transform: rotateY(360deg); }
+}
+
+@-moz-keyframes spin {
+  from { transform: rotateY(0); }
+  to   { transform: rotateY(360deg); }
+}
+
+@-o-keyframes spin {
+  from { transform: rotateY(0); }
+  to   { transform: rotateY(360deg); }
+}
+
+@-ms-keyframes spin {
+  from { transform: rotateY(0); }
+  to   { transform: rotateY(360deg); }
+}
+
+@keyframes spin {
+  from { transform: rotateY(0); }
+  to   { transform: rotateY(360deg); }
+}
+
+$size: 1400px;
+
+/* scene wrapper */
+.wrapper {
+  height: 300px;
+  margin-top: 50px;
+  position: relative;
+  perspective: 600;
+  perspective-origin: 50% 900px;
+}
+
+/* cube wrapper */
+.cube{
+  position: relative;
+  margin: 0 auto;
+  width: 200px;
+  -webkit-transform-style: preserve-3d;
+  // -webkit-animation: spin 14s infinite linear;
+  transition: all 1s linear;
+}
+
+/* outer cube */
+b{
+  position:absolute;
+  width: $size;
+  height: $size;
+  display:block;
+  background:rgba(255,255,0,0.1);
+  // box-shadow:inset 0 0 222px rgba(0,0,0,0.9);
+  font-size:300px;
+  text-align:center;
+  line-height:$size/2;
+  color:rgba(0,0,0,0.5);
+  font-family:sans-serif;
+  text-transform:uppercase;
+  transition: all 1s linear;
+}
+b.back{
+  transform: translateX(-$size/2) translateZ($size/2) rotateX(180deg);
+}
+b.right{
+  -webkit-transform: rotateY(-270deg);
+  background: green;
+}
+b.left{
+  -webkit-transform: translateX(-$size) rotateY(270deg);
+  background: rgba(255, 0, 0, 0.5);
+  /*transform:translateZ(-300px) rotateY(270deg) translateX(-600px);*/
+  /*transform-origin: center left;*/
+}
+b.top{
+  -webkit-transform: translateX(-$size/2) translateY(-$size/2) rotateX(-90deg);
+  background: rgba(255,255,0,0.5);
+  /*transform:translateZ(-300px) rotateX(-90deg) translateY(-600px);*/
+  /*transform-origin: top center;*/
+}
+b.bottom{
+  -webkit-transform: translateX(-$size/2) translateY($size/2) rotateX(90deg);
+  background: rgba(255,127,255,0.5);
+  /*transform:translateZ(-300px) rotateX(90deg) translateY(600px);*/
+  /*transform-origin: bottom center;*/
+}
+b.front{
+  -webkit-transform: translateX(-$size/2) translateZ(-$size/2) rotateY(180deg);
+}
+
+/* inner cube */
+i{
+  position:absolute;
+  top:50px;
+  left:50px;
+  width:100px;
+  height:100px;
+  display:block;
+  background:url(http://i45.tinypic.com/muxvt1.png);
+  transition: all 1s linear;
+}
+i.front{
+  transform: translateX($size/2);
+}
+i.back{
+
+}
+i.bottom{
+
+}
+i.left{
+
+}
+i.right{
+
+}
+i.top{
+
+}
