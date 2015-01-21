@@ -1,38 +1,38 @@
 /* keyframes for rotating animation */
 @-webkit-keyframes spin {
   from {
-    transform: rotateY(0); }
+    transform: rotateX(0) rotateY(0) rotateZ(0); }
 
   to {
-    transform: rotateY(360deg); } }
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); } }
 
 @-moz-keyframes spin {
   from {
-    transform: rotateY(0); }
+    transform: rotateX(0) rotateY(0) rotateZ(0); }
 
   to {
-    transform: rotateY(360deg); } }
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); } }
 
 @-o-keyframes spin {
   from {
-    transform: rotateY(0); }
+    transform: rotateX(0) rotateY(0) rotateZ(0); }
 
   to {
-    transform: rotateY(360deg); } }
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); } }
 
 @-ms-keyframes spin {
   from {
-    transform: rotateY(0); }
+    transform: rotateX(0) rotateY(0) rotateZ(0); }
 
   to {
-    transform: rotateY(360deg); } }
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); } }
 
 @keyframes spin {
   from {
-    transform: rotateY(0); }
+    transform: rotateX(0) rotateY(0) rotateZ(0); }
 
   to {
-    transform: rotateY(360deg); } }
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); } }
 
 /* scene wrapper */
 .wrapper {
@@ -49,6 +49,7 @@
   width: 0px;
   -webkit-transform-style: preserve-3d;
   -webkit-animation: spin 14s infinite linear;
+  -webkit-transform-origin: 0 400px;
   transition: all 1s linear; }
 
 /* outer cube */
@@ -58,7 +59,6 @@ b {
   width: 800px;
   height: 800px;
   display: block;
-  background: rgba(255, 255, 0, 0.1);
   font-size: 150px;
   text-align: center;
   line-height: 400px;
@@ -68,7 +68,8 @@ b {
   transition: all 1s linear; }
 
 b.back {
-  transform: translate3d(-400px, 0, 400px) rotateY(180deg); }
+  transform: translate3d(-400px, 0, 400px) rotateY(180deg);
+  background: rgba(0, 0, 255, 0.5); }
 
 b.right {
   -webkit-transform: translate3d(0, 0, 0) rotateY(-90deg);
@@ -84,10 +85,11 @@ b.top {
 
 b.bottom {
   -webkit-transform: translate3d(-400px, 400px, 0) rotateX(90deg);
-  background: rgba(255, 127, 255, 0.5); }
+  background: rgba(255, 0, 255, 0.5); }
 
 b.front {
-  -webkit-transform: translate3d(-400px, 0, -400px); }
+  -webkit-transform: translate3d(-400px, 0, -400px);
+  background: rgba(0, 255, 255, 0.5); }
 
 /* inner cube */
 i {
@@ -122,3 +124,6 @@ i.bottom {
 
 i.back {
   -webkit-transform: translate3d(-100px, 300px, -100px) rotateY(180deg); }
+
+body {
+  overflow: hidden; }

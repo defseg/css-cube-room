@@ -1,27 +1,27 @@
 /* keyframes for rotating animation */
 @-webkit-keyframes spin {
-  from { transform: rotateY(0); }
-  to   { transform: rotateY(360deg); }
+  from { transform: rotateX(0) rotateY(0) rotateZ(0); }
+  to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
 }
 
 @-moz-keyframes spin {
-  from { transform: rotateY(0); }
-  to   { transform: rotateY(360deg); }
+  from { transform: rotateX(0) rotateY(0) rotateZ(0); }
+  to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
 }
 
 @-o-keyframes spin {
-  from { transform: rotateY(0); }
-  to   { transform: rotateY(360deg); }
+  from { transform: rotateX(0) rotateY(0) rotateZ(0); }
+  to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
 }
 
 @-ms-keyframes spin {
-  from { transform: rotateY(0); }
-  to   { transform: rotateY(360deg); }
+  from { transform: rotateX(0) rotateY(0) rotateZ(0); }
+  to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
 }
 
 @keyframes spin {
-  from { transform: rotateY(0); }
-  to   { transform: rotateY(360deg); }
+  from { transform: rotateX(0) rotateY(0) rotateZ(0); }
+  to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
 }
 
 $size: 800px;
@@ -43,6 +43,7 @@ $cube-size: 200px;
   width: 0px;
   -webkit-transform-style: preserve-3d;
   -webkit-animation: spin 14s infinite linear;
+  -webkit-transform-origin: 0 $size/2;
   transition: all 1s linear;
 }
 
@@ -53,7 +54,6 @@ b{
   width: $size;
   height: $size;
   display: block;
-  background: rgba(255,255,0,0.1);
   // box-shadow:inset 0 0 222px rgba(0,0,0,0.9);
   font-size: 150px;
   text-align: center;
@@ -70,6 +70,7 @@ $cube-z-offset: 0;
 
 b.back{
   transform: translate3d(-$size/2 + $cube-x-offset, $cube-y-offset, $size/2) rotateY(180deg);
+  background: rgba(0,0,255,0.5);
 }
 b.right{
   -webkit-transform: translate3d($cube-x-offset, $cube-y-offset, 0) rotateY(-90deg);
@@ -85,10 +86,11 @@ b.top{
 }
 b.bottom{
   -webkit-transform: translate3d(-$size/2 + $cube-x-offset, $size/2 + $cube-y-offset, 0) rotateX(90deg);
-  background: rgba(255,127,255,0.5);
+  background: rgba(255,0,255,0.5);
 }
 b.front{
   -webkit-transform: translate3d(-$size/2 + $cube-x-offset, $cube-y-offset, -$size/2);
+  background: rgba(0,255,255,0.5);
 }
 
 /* inner cube */
@@ -129,4 +131,8 @@ i.bottom{
 }
 i.back{
   -webkit-transform: translate3d(-$cube-size/2, $room-y-offset, -$cube-size/2) rotateY(180deg);
+}
+
+body {
+  overflow: hidden;
 }
